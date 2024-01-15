@@ -34,7 +34,7 @@ class Act(APIView):
             serializer.save()
             print(act + " " + n)
             if act == "cta" and n == "2":
-                return Response(job.contact)
+                return Response({"manager": job.contact})
             return Response(serializer.data, 
                             status=status.HTTP_201_CREATED) 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
